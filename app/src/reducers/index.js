@@ -1,8 +1,6 @@
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, NEXT_POKEMON, PREVIOUS_POKEMON } from "../actions";
 
 const initialState = {
-  ////do I need to initialize it exactly as it appears in the api?--image url would be under the sprites obj, and both imageurl and pokemonID would have different names
-
   name: "Bulbasaur",
   imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
   pokemonId: 1,
@@ -35,12 +33,12 @@ export const reducer = (state = initialState, action) => {
     case NEXT_POKEMON:
       return {
         ...state,
-        pokmonId: parseInt(state.pokemonId + 1),
+        pokemonId: state.pokemonId + 1,
       };
     case PREVIOUS_POKEMON:
       return {
         ...state,
-        pokmonId: parseInt(state.pokemonId - 1),
+        pokmonId: state.pokemonId - 1,
       };
     default:
       return state;

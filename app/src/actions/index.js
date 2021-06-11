@@ -35,8 +35,8 @@ export const fetchFail = (error) => {
   return { type: FETCH_FAIL, payload: error };
 };
 export const nextPokemon = () => {
-  return { type: FETCH_START };
+  return { type: NEXT_POKEMON };
 };
 export const previousPokemon = () => {
-  return { type: FETCH_START };
+  return { type: PREVIOUS_POKEMON };
 };

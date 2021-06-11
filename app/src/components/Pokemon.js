@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { getPokemon, nextPokemon, previousPokemon, dispatch } from "../actions/index";
+import { getPokemon, nextPokemon, previousPokemon } from "../actions/index";
 
 const PokemonCard = (props) => {
   const { name, imageUrl, pokemonId, previousPokemon, nextPokemon } = props;
   useEffect(() => {
-    props.dispatch(getPokemon(pokemonId));
+    getPokemon(pokemonId);
   });
 
-  const prevPokemon = () => {
-    props.dispatch(previousPokemon());
-  };
+  // const prevPokemon = () => {
+  //   props.dispatch(previousPokemon());
+  // };
 
-  const nexPokemon = () => {
-    props.dispatch(nextPokemon);
-    console.log("nextpokemon", nextPokemon);
-  };
+  // const nexPokemon = () => {
+  //   props.dispatch(nextPokemon);
+  //   console.log("nextpokemon", nextPokemon);
+  // };
 
   return (
     <div>
@@ -30,8 +30,8 @@ const PokemonCard = (props) => {
           </p>
         </div>
       </div>
-      <button onClick={prevPokemon}> Previous </button>
-      <button onClick={nexPokemon()}> Next </button>
+      <button onClick={previousPokemon}> Previous </button>
+      <button onClick={nextPokemon}> Next </button>
     </div>
   );
 };
@@ -44,4 +44,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(PokemonCard);
+export default connect(mapStateToProps, { previousPokemon, nextPokemon })(PokemonCard);
