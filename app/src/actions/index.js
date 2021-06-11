@@ -3,6 +3,8 @@ import axios from "axios";
 export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAIL = "FETCH_FAIL";
+export const NEXT_POKEMON = "NEXT_POKEMON";
+export const PREVIOUS_POKEMON = "PREVIOUS_POKEMON";
 
 export const getPokemon = (pokemonId) => {
   return (dispatch) => {
@@ -31,4 +33,10 @@ export const fetchSuccess = (currentPokemon) => {
 
 export const fetchFail = (error) => {
   return { type: FETCH_FAIL, payload: error };
+};
+export const nextPokemon = () => {
+  return { type: FETCH_START };
+};
+export const previousPokemon = () => {
+  return { type: FETCH_START };
 };
