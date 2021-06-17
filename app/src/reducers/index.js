@@ -38,7 +38,7 @@ export const reducer = (state = initialState, action) => {
     case PREVIOUS_POKEMON:
       return {
         ...state,
-        pokmonId: state.pokemonId - 1,
+        pokemonId: state.pokemonId - 1,
       };
     default:
       return state;

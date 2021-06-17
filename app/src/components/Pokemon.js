@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { getPokemon, nextPokemon, previousPokemon } from "../actions/index";
 
 const PokemonCard = (props) => {
-  const { name, imageUrl, pokemonId, previousPokemon, nextPokemon } = props;
+  const { name, imageUrl, pokemonId } = props;
   useEffect(() => {
-    getPokemon(pokemonId);
+    props.getPokemon(pokemonId);
   });
 
   // const prevPokemon = () => {
@@ -30,8 +30,8 @@ const PokemonCard = (props) => {
           </p>
         </div>
       </div>
-      <button onClick={previousPokemon}> Previous </button>
-      <button onClick={nextPokemon}> Next </button>
+      <button onClick={props.previousPokemon}> Previous </button>
+      <button onClick={props.nextPokemon}> Next </button>
     </div>
   );
 };
@@ -44,4 +44,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { previousPokemon, nextPokemon })(PokemonCard);
+export default connect(mapStateToProps, { previousPokemon, nextPokemon, getPokemon })(PokemonCard);
+//test
