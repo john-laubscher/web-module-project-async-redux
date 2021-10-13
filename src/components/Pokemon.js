@@ -1,13 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } from "../actions/index";
 
 const PokemonCard = (props) => {
-  let { name, imageUrl, pokemonId } = props;
+  const { name, imageUrl, pokemonId } = props;
   useEffect(() => {
     props.getPokemon(pokemonId);
-  });
+  }, [pokemonId]);
+
+  const [searchBarValue, setSearchBarValue] = useState("");
+
+  const handleChange = (event) => {
+    setSearchBarValue(event.target.value);
+  };
 
   const minPokemonId = () => {
     if (pokemonId <= 1) {
@@ -24,6 +30,15 @@ const PokemonCard = (props) => {
       props.nextPokemon();
     }
   };
+
+  const maxSearchId = () => {
+    if (searchBarValue > 151) {
+      setSearchBarValue(151);
+      props.getPokemon(151);
+    } else {
+      props.getPokemon(searchBarValue);
+    }
+  };
   return (
     <div>
       <div className="flexContainer">
@@ -32,14 +47,15 @@ const PokemonCard = (props) => {
           <img src={imageUrl} alt={`the ${name} pokemon`} />
           <p>
             {" "}
-            {name}'s pokedex # is {pokemonId}
+            {name}'s Pokédex # is {pokemonId}
           </p>
         </div>
       </div>
       <button onClick={minPokemonId}> Previous </button>
       <button onClick={maxPokemonId}> Next </button>
-      <p>Search by name or Pokedex number</p>
-      <input type="text" name="searchBar" value=""></input>
+      <p>Search by name or Pokédex number</p>
+      <input type="text" name="searchBar" value={searchBarValue} onChange={handleChange}></input>
+      <button onClick={() => maxSearchId()}>Search Pokémon</button>
     </div>
   );
 };

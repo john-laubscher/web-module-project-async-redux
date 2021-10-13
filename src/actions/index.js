@@ -8,22 +8,17 @@ export const PREVIOUS_POKEMON = "PREVIOUS_POKEMON";
 export const MIN_POKEMON_ID = "MIN_POKEMON_ID";
 export const MAX_POKEMON_ID = "MAX_POKEMON_ID";
 
-export const getPokemon = (pokemonId) => {
-  return (dispatch) => {
-    dispatch(fetchStart());
-    //2. fetch data from api
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`) ///make the ' 1 ' dynamic with ${pokemonId} and backticks replacing the ""
-      .then((resp) => {
-        //3. if fetch is successful, Fetch_success with that data
-        console.log("axios call", resp);
-        dispatch(fetchSuccess(resp.data));
-      })
-      .catch((err) => {
-        //4. if fetch is not successful, Fetch_Fail with error message
-        dispatch(fetchFail("Sorry, looks like you're not experienced enough to view this pokemon. Try the next one.", err));
-      });
-  };
+export const getPokemon = (pokemonId) => (dispatch) => {
+  dispatch(fetchStart());
+  axios
+    .get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
+    .then((resp) => {
+      console.log("axios call", resp);
+      dispatch(fetchSuccess(resp.data));
+    })
+    .catch((err) => {
+      dispatch(fetchFail("Sorry, looks like you're not experienced enough to view this pokemon. Try the next one.", err));
+    });
 };
 
 export const fetchStart = () => {

@@ -16,7 +16,6 @@ export const reducer = (state = initialState, action) => {
         isFetching: true,
       };
     case FETCH_SUCCESS:
-      console.log("fetch success", action.payload);
       return {
         ...state,
         isFetching: false,
@@ -50,6 +49,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         pokemonId: 1,
       };
+    // case FETCH_BY_NAME_OR_ID:
+    //   return {
+    //     ...state,
+    //     pokemonId: action.payload,
+    //   };
 
     default:
       return state;
