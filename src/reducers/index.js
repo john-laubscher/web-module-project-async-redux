@@ -1,4 +1,4 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, NEXT_POKEMON, PREVIOUS_POKEMON } from "../actions";
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, NEXT_POKEMON, PREVIOUS_POKEMON, MIN_POKEMON_ID, MAX_POKEMON_ID } from "../actions";
 
 const initialState = {
   name: "Bulbasaur",
@@ -40,6 +40,17 @@ export const reducer = (state = initialState, action) => {
         ...state,
         pokemonId: state.pokemonId - 1,
       };
+    case MIN_POKEMON_ID:
+      return {
+        ...state,
+        pokemonId: 151,
+      };
+    case MAX_POKEMON_ID:
+      return {
+        ...state,
+        pokemonId: 1,
+      };
+
     default:
       return state;
   }
