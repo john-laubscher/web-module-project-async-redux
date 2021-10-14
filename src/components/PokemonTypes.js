@@ -1,0 +1,17 @@
+const PokemonTypesArray = [
+  { type: "Bug", img: "src/components/pictures/BugType.png" },
+  { type: "Bug", img: "src/components/pictures/DragonType.png" },
+  { type: "Electric", img: "src/components/pictures/ElectricType.png" },
+  { type: "Fighting", img: "src/components/pictures/FightingType.png" },
+  { type: "Fire", img: "src/components/pictures/FireType.png" },
+  { type: "Flying", img: "src/components/pictures/FlyingType.png" },
+  { type: "Ghost", img: "src/components/pictures/GhostType.png" },
+  { type: "Grass", img: "src/components/pictures/GrassType.png" },
+  { type: "Ground", img: "src/components/pictures/GroundType.png" },
+  { type: "Ice", img: "src/components/pictures/IceType.png" },
+  { type: "Normal", img: "src/components/pictures/NormalType.png" },
+  { type: "Poison", img: "src/components/pictures/PoisonType.png" },
+  { type: "Psychic", img: "src/components/pictures/PsychicType.png" },
+  { type: "Rock", img: "src/components/pictures/RockType.png" },
+  { type: "Water", img: "src/components/pictures/WaterType.png" },
+];

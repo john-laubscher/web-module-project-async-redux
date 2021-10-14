@@ -22,6 +22,7 @@ export const reducer = (state = initialState, action) => {
         name: action.payload.name,
         pokemonId: action.payload.id,
         imageUrl: action.payload.sprites.front_default,
+        types: action.payload.types,
       };
     case FETCH_FAIL:
       return {
@@ -49,12 +50,6 @@ export const reducer = (state = initialState, action) => {
         ...state,
         pokemonId: 1,
       };
-    // case FETCH_BY_NAME_OR_ID:
-    //   return {
-    //     ...state,
-    //     pokemonId: action.payload,
-    //   };
-
     default:
       return state;
   }

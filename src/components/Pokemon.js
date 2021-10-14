@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } from "../actions/index";
 
 const PokemonCard = (props) => {
-  const { name, imageUrl, pokemonId } = props;
+  const { name, imageUrl, pokemonId, types } = props;
   useEffect(() => {
     props.getPokemon(pokemonId);
   }, [pokemonId]);
@@ -39,6 +39,8 @@ const PokemonCard = (props) => {
       props.getPokemon(searchBarValue);
     }
   };
+
+  const displayPokemonType = () => {};
   return (
     <div>
       <div className="flexContainer">
@@ -64,6 +66,7 @@ const mapStateToProps = (state) => {
     name: state.name,
     imageUrl: state.imageUrl,
     pokemonId: state.pokemonId,
+    types: state.types,
   };
 };
 
