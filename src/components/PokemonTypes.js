@@ -1,17 +1,35 @@
-const PokemonTypesArray = [
-  { type: "Bug", img: "src/components/pictures/BugType.png" },
-  { type: "Bug", img: "src/components/pictures/DragonType.png" },
-  { type: "Electric", img: "src/components/pictures/ElectricType.png" },
-  { type: "Fighting", img: "src/components/pictures/FightingType.png" },
-  { type: "Fire", img: "src/components/pictures/FireType.png" },
-  { type: "Flying", img: "src/components/pictures/FlyingType.png" },
-  { type: "Ghost", img: "src/components/pictures/GhostType.png" },
-  { type: "Grass", img: "src/components/pictures/GrassType.png" },
-  { type: "Ground", img: "src/components/pictures/GroundType.png" },
-  { type: "Ice", img: "src/components/pictures/IceType.png" },
-  { type: "Normal", img: "src/components/pictures/NormalType.png" },
-  { type: "Poison", img: "src/components/pictures/PoisonType.png" },
-  { type: "Psychic", img: "src/components/pictures/PsychicType.png" },
-  { type: "Rock", img: "src/components/pictures/RockType.png" },
-  { type: "Water", img: "src/components/pictures/WaterType.png" },
-];
+import BugLogo from "./Pictures/BugType.png";
+import DragonLogo from "./Pictures/DragonType.png";
+import ElectricLogo from "./Pictures/ElectricType.png";
+import FightingLogo from "./Pictures/FightingType.png";
+import FireLogo from "./Pictures/FireType.png";
+import FlyingLogo from "./Pictures/FlyingType.png";
+import GhostLogo from "./Pictures/GhostType.png";
+import GrassLogo from "./Pictures/GrassType.png";
+import GroundLogo from "./Pictures/GroundType.png";
+import IceLogo from "./Pictures/IceType.png";
+import NormalLogo from "./Pictures/NormalType.png";
+import PoisonLogo from "./Pictures/PoisonType.png";
+import PsychicLogo from "./Pictures/PsychicType.png";
+import RockLogo from "./Pictures/RockType.png";
+import WaterLogo from "./Pictures/WaterType.png";
+
+const PokemonTypes = {
+  bug: { img: BugLogo, color: "#98FB98" },
+  dragon: { img: DragonLogo, color: "#DAA520" },
+  electric: { img: ElectricLogo, color: "#FFFF00" },
+  fighting: { img: FightingLogo, color: "#A0522D" },
+  fire: { img: FireLogo, color: "#FF4500" },
+  flying: { img: FlyingLogo, color: "#87CEFA" },
+  ghost: { img: GhostLogo, color: "#DDA0DD" },
+  grass: { img: GrassLogo, color: "#32CD32" },
+  ground: { img: GroundLogo, color: "#F4A460" },
+  ice: { img: IceLogo, color: "#B0C4DE" },
+  normal: { img: NormalLogo, color: "#FFEFD5" },
+  poison: { img: PoisonLogo, color: "#8B008B" },
+  psychic: { img: PsychicLogo, color: "#C71585" },
+  rock: { img: RockLogo, color: "#DEB887" },
+  water: { img: WaterLogo, color: "#00BFFF" },
+};
+
+export default PokemonTypes;

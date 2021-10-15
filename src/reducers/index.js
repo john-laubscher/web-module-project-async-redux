@@ -5,6 +5,7 @@ const initialState = {
   imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
   pokemonId: 1,
   isFetching: false,
+  types: [{ type: { name: "grass" } }, { type: { name: "poison" } }],
   error: "",
 };
 
