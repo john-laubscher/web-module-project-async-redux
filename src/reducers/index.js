@@ -7,6 +7,7 @@ const initialState = {
   isFetching: false,
   types: [{ type: { name: "grass" } }, { type: { name: "poison" } }],
   error: "",
+  past_types: [],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -24,6 +25,7 @@ export const reducer = (state = initialState, action) => {
         pokemonId: action.payload.id,
         imageUrl: action.payload.sprites.front_default,
         types: action.payload.types,
+        past_types: action.payload.past_types,
       };
     case FETCH_FAIL:
       return {

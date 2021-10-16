@@ -4,7 +4,7 @@ import PokemonTypes from "../components/PokemonTypes";
 import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } from "../actions/index";
 
 const PokemonCard = (props) => {
-  const { name, imageUrl, pokemonId, types } = props;
+  const { name, imageUrl, pokemonId, types, past_types } = props;
   useEffect(() => {
     props.getPokemon(pokemonId);
   }, [pokemonId]);
@@ -43,21 +43,44 @@ const PokemonCard = (props) => {
   const stylingFunc = () => {
     let typeColor = [];
     let stylingObj = {};
-    if (types.length === 1) {
+    if (past_types.length > 0) {
+      let color = PokemonTypes[past_types[0].types[0].type.name].color;
+      stylingObj = {
+        backgroundColor: color,
+      };
+    } else if (types.length === 1) {
       stylingObj = {
         backgroundColor: PokemonTypes[types[0].type.name].color,
       };
       return stylingObj;
+    } else if (types.length > 1) {
+      types.map((type) => {
+        let pokemonTypeColor = PokemonTypes[type.type.name].color;
+        typeColor.push(pokemonTypeColor);
+        stylingObj = {
+          background: `linear-gradient(to bottom right, ${typeColor[0]}, ${typeColor[1]})`,
+        };
+        return stylingObj;
+      });
     }
-    types.map((type) => {
-      let pokemonTypeColor = PokemonTypes[type.type.name].color;
-      typeColor.push(pokemonTypeColor);
-      stylingObj = {
-        background: `linear-gradient(to bottom right, ${typeColor[0]}, ${typeColor[1]})`,
-      };
-      return stylingObj;
-    });
     return stylingObj;
+  };
+
+  const determineTypesIcons = () => {
+    if (past_types.length > 0) {
+      let typesIconInfo = PokemonTypes[past_types[0].types[0].type.name];
+      return <img src={typesIconInfo.img} alt={`the ${typesIconInfo.name} Pokémon type icon`} width={"12%"} height={"16%"} />;
+    } else {
+      let element = "";
+      let elementsArray = [];
+      types.map((type) => {
+        let pokemonTypeData = PokemonTypes[type.type.name];
+        element = <img src={pokemonTypeData.img} alt={`the ${type.type.name} Pokémon type icon`} width={"12%"} height={"16%"} />;
+        elementsArray.push(element);
+        return elementsArray;
+      });
+      return elementsArray;
+    }
   };
 
   return (
@@ -65,11 +88,8 @@ const PokemonCard = (props) => {
       <div className="flexContainer">
         <div className="pokeCard" style={stylingFunc()}>
           <h1> {name} </h1>
-          <img src={imageUrl} alt={`the ${name} pokemon`} />
-          {types.map((type) => {
-            let pokemonTypeData = PokemonTypes[type.type.name];
-            return <img src={pokemonTypeData.img} alt={`the ${type.type.name} Pokémon type icon`} width={"18%"} height={"auto"} />;
-          })}
+          <img src={imageUrl} alt={`the ${name} pokemon`} width={"35%"} height={"30%"} />
+          {determineTypesIcons()}
           <p>
             {" "}
             {name}'s Pokédex # is {pokemonId}
@@ -90,6 +110,7 @@ const mapStateToProps = (state) => {
     imageUrl: state.imageUrl,
     pokemonId: state.pokemonId,
     types: state.types,
+    past_types: state.past_types,
   };
 };
 
