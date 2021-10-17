@@ -88,7 +88,7 @@ const PokemonCard = (props) => {
       <div className="flexContainer">
         <div className="pokeCard" style={stylingFunc()}>
           <h1> {name} </h1>
-          <img src={imageUrl} alt={`the ${name} pokemon`} width={"35%"} height={"30%"} />
+          <img src={imageUrl} alt={`the ${name} pokemon`} width={"55%"} height={"auto"} />
           {determineTypesIcons()}
           <p>
             {" "}

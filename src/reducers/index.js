@@ -2,7 +2,7 @@ import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, NEXT_POKEMON, PREVIOUS_POKEMON,
 
 const initialState = {
   name: "Bulbasaur",
-  imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+  imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
   pokemonId: 1,
   isFetching: false,
   types: [{ type: { name: "grass" } }, { type: { name: "poison" } }],
@@ -23,7 +23,7 @@ export const reducer = (state = initialState, action) => {
         isFetching: false,
         name: action.payload.name,
         pokemonId: action.payload.id,
-        imageUrl: action.payload.sprites.front_default,
+        imageUrl: action.payload.sprites.other["official-artwork"].front_default,
         types: action.payload.types,
         past_types: action.payload.past_types,
       };
