@@ -69,13 +69,24 @@ const PokemonCard = (props) => {
   const determineTypesIcons = () => {
     if (past_types.length > 0) {
       let typesIconInfo = PokemonTypes[past_types[0].types[0].type.name];
-      return <img src={typesIconInfo.img} alt={`the ${typesIconInfo.name} Pokémon type icon`} width={"12%"} height={"16%"} />;
+      console.log("typesIconInfo", typesIconInfo);
+      return (
+        <div>
+          <img src={typesIconInfo.img} alt={`the ${typesIconInfo.name} Pokémon type icon`} width={"35%"} height={"auto%"} />
+          <p className="pokemonTypeName">{past_types[0].types[0].type.name}</p>
+        </div>
+      );
     } else {
       let element = "";
       let elementsArray = [];
       types.map((type) => {
         let pokemonTypeData = PokemonTypes[type.type.name];
-        element = <img src={pokemonTypeData.img} alt={`the ${type.type.name} Pokémon type icon`} width={"12%"} height={"16%"} />;
+        element = (
+          <div className="pokemonTypeContainer">
+            <img src={pokemonTypeData.img} alt={`the ${type.type.name} Pokémon type icon`} width={"35%"} height={"auto"} />
+            <p className="pokemonTypeName">{type.type.name}</p>
+          </div>
+        );
         elementsArray.push(element);
         return elementsArray;
       });
@@ -87,20 +98,28 @@ const PokemonCard = (props) => {
     <div>
       <div className="flexContainer">
         <div className="pokeCard" style={stylingFunc()}>
-          <h1> {name} </h1>
+          <h2> {name} </h2>
           <img src={imageUrl} alt={`the ${name} pokemon`} width={"55%"} height={"auto"} />
-          {determineTypesIcons()}
-          <p>
+          <div className="pokemonTypeFlexContainer">{determineTypesIcons()}</div>
+          <p className="pokedexNumber">
             {" "}
             {name}'s Pokédex # is {pokemonId}
           </p>
         </div>
       </div>
-      <button onClick={minPokemonId}> Previous </button>
-      <button onClick={maxPokemonId}> Next </button>
-      <p>Search by name or Pokédex number</p>
+      <button className="nextPreviousPokemon" onClick={minPokemonId}>
+        {" "}
+        Previous{" "}
+      </button>
+      <button className="nextPreviousPokemon" onClick={maxPokemonId}>
+        {" "}
+        Next{" "}
+      </button>
+      <p className="searchBar">Search by name or Pokédex number</p>
       <input type="text" name="searchBar" value={searchBarValue} onChange={handleChange}></input>
-      <button onClick={() => maxSearchId()}>Search Pokémon</button>
+      <button className="nextPreviousPokemon" onClick={() => maxSearchId()}>
+        Search Pokémon
+      </button>
     </div>
   );
 };

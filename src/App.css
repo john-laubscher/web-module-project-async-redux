@@ -1,6 +1,14 @@
 .App {
   text-align: center;
 }
+html {
+  background: url(./components/Pictures/Pokeballs.jpeg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity: 0.8;
+}
 
 .App-logo {
   height: 40vmin;
@@ -36,10 +44,80 @@
     transform: rotate(360deg);
   }
 }
+h1 {
+  margin: 10px 44%;
+  padding: 10px 0px;
+  background-color: #9e0e04;
+  border-color: black;
+  border: 3px solid black;
+  border-radius: 10px;
+  color: white;
+}
 
 .pokeCard {
   border: 3px inset rgb(17, 141, 104);
   width: 25%;
   text-align: center;
   margin-left: 37%;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.pokemonTypeFlexContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0px 25px;
+}
+
+.pokemonTypeName {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: capitalize;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 60%;
+  padding: 10px 0px;
+  margin: 0px 15px;
+}
+
+.pokedexNumber {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgb(253, 186, 186);
+}
+
+.pokedexNumber::first-letter {
+  text-transform: capitalize;
+}
+
+.searchBar {
+  margin: 10px 41%;
+  padding: 10px 0px;
+  background-color: #ffffff;
+  border: 0.5px solid black;
+  opacity: 0.8;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.nextPreviousPokemon {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  border: 1em solid rgba(255, 255, 255, 0);
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  text-align: center;
+  transition: all 0.2s;
+  background-color: #9e0e04;
+  border-color: black;
+  border-width: 0.25em;
 }
