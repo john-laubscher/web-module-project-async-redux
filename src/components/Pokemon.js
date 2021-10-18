@@ -7,7 +7,7 @@ const PokemonCard = (props) => {
   const { getPokemon, name, imageUrl, pokemonId, types, past_types } = props;
   useEffect(() => {
     getPokemon(pokemonId);
-  }, [pokemonId]);
+  }, [pokemonId, getPokemon]);
 
   const [searchBarValue, setSearchBarValue] = useState("");
 
