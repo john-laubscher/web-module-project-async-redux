@@ -6,7 +6,7 @@ import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } 
 const PokemonCard = (props) => {
   const { name, imageUrl, pokemonId, types, past_types } = props;
   useEffect(() => {
-    props.getPokemon(pokemonId);
+    getPokemon(pokemonId);
   }, [pokemonId]);
 
   const [searchBarValue, setSearchBarValue] = useState("");
@@ -82,7 +82,7 @@ const PokemonCard = (props) => {
       types.map((type) => {
         let pokemonTypeData = PokemonTypes[type.type.name];
         element = (
-          <div className="pokemonTypeContainer">
+          <div className="pokemonTypeContainer" key={type.type.name}>
             <img src={pokemonTypeData.img} alt={`the ${type.type.name} Pokémon type icon`} width={"35%"} height={"auto"} />
             <p className="pokemonTypeName">{type.type.name}</p>
           </div>
