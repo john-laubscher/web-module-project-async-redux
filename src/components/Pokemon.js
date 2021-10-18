@@ -4,7 +4,7 @@ import PokemonTypes from "../components/PokemonTypes";
 import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } from "../actions/index";
 
 const PokemonCard = (props) => {
-  const { name, imageUrl, pokemonId, types, past_types } = props;
+  const { getPokemon, name, imageUrl, pokemonId, types, past_types } = props;
   useEffect(() => {
     getPokemon(pokemonId);
   }, [pokemonId]);
