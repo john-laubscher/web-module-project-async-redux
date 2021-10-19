@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import PokemonTypes from "../components/PokemonTypes";
 import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } from "../actions/index";
+import PokedexLogo from "./Pictures/PokedexLogo.png";
 
 const PokemonCard = (props) => {
   const { getPokemon, name, imageUrl, pokemonId, types, past_types } = props;

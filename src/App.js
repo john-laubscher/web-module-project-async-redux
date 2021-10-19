@@ -1,11 +1,12 @@
 import "./App.css";
 import React from "react";
 import Pokemon from "./components/Pokemon";
+import PokedexLogo from "./components/Pictures/PokedexLogo.png";
 
 function App() {
   return (
     <div className="App">
-      <h1>Pokédex</h1>
+      <img className="PokedexLogo" src={PokedexLogo} alt="Pokedex Logo" />
       <Pokemon />
     </div>
   );

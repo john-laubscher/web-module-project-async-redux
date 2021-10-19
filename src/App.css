@@ -43,15 +43,9 @@ html {
     transform: rotate(360deg);
   }
 }
-h1 {
-  margin: 10px 44%;
-  padding: 10px 0px;
-  background-color: #9e0e04;
-  border-color: black;
-  border: 3px solid black;
-  border-radius: 10px;
-  color: white;
-  opacity: 0.8;
+.PokedexLogo {
+  width: 25%;
+  min-width: 170px;
 }
 
 .flexContainer {
@@ -131,10 +125,16 @@ h2 {
   opacity: 0.8;
 }
 
+/* Sweet Alert */
+.swal2-title {
+  color: black !important;
+}
+
+.swal2-html-container {
+  color: black !important;
+  font-weight: bold !important;
+}
 @media (max-width: 1200px) {
-  h1 {
-    margin: 10px 40%;
-  }
   .pokeCard {
     width: 35%;
   }
@@ -148,19 +148,13 @@ h2 {
     width: 40%;
     min-width: 270px;
   }
-  h1 {
-    margin: 10px 33%;
-    min-width: 170px;
-  }
+
   .searchBar {
     margin: 10px 30%;
   }
 }
 
 @media (max-width: 500px) {
-  h1 {
-    margin: 10px 30%;
-  }
   .pokeCard {
     width: 60%;
   }
