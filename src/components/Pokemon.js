@@ -36,7 +36,8 @@ const PokemonCard = (props) => {
       setSearchBarValue(151);
       props.getPokemon(151);
     } else {
-      props.getPokemon(searchBarValue);
+      const searchValueLowerCase = searchBarValue.toLowerCase();
+      props.getPokemon(searchValueLowerCase);
     }
   };
 
