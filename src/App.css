@@ -54,11 +54,15 @@ h1 {
   color: white;
 }
 
+.flexContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .pokeCard {
   border: 3px inset rgb(17, 141, 104);
   width: 25%;
   text-align: center;
-  margin-left: 37%;
 }
 
 h2 {
@@ -120,4 +124,42 @@ h2 {
   background-color: #9e0e04;
   border-color: black;
   border-width: 0.25em;
+}
+
+@media (max-width: 1200px) {
+  h1 {
+    margin: 10px 40%;
+  }
+  .pokeCard {
+    width: 35%;
+  }
+  .searchBar {
+    margin: 10px 35%;
+  }
+}
+
+@media (max-width: 800px) {
+  .pokeCard {
+    width: 40%;
+    min-width: 270px;
+  }
+  h1 {
+    margin: 10px 33%;
+    min-width: 170px;
+  }
+  .searchBar {
+    margin: 10px 30%;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    margin: 10px 30%;
+  }
+  .pokeCard {
+    width: 60%;
+  }
+  .searchBar {
+    margin: 10px 20%;
+  }
 }
