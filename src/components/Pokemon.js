@@ -116,7 +116,7 @@ const PokemonCard = (props) => {
         Next{" "}
       </button>
       <p className="searchBar">Search below by name or Pokédex number</p>
-      <input type="text" name="searchBar" value={searchBarValue} onChange={handleChange}></input>
+      <input className="searchBarField" type="text" name="searchBar" value={searchBarValue} onChange={handleChange}></input>
       <button className="nextPreviousPokemon" onClick={() => maxSearchId()}>
         Search Pokémon
       </button>

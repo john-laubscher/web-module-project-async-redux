@@ -7,7 +7,6 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  opacity: 0.8;
 }
 
 .App-logo {
@@ -52,6 +51,7 @@ h1 {
   border: 3px solid black;
   border-radius: 10px;
   color: white;
+  opacity: 0.8;
 }
 
 .flexContainer {
@@ -124,6 +124,11 @@ h2 {
   background-color: #9e0e04;
   border-color: black;
   border-width: 0.25em;
+  opacity: 0.8;
+}
+
+.searchBarField {
+  opacity: 0.8;
 }
 
 @media (max-width: 1200px) {
