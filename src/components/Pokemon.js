@@ -13,6 +13,8 @@ const PokemonCard = (props) => {
 
   const handleChange = (event) => {
     setSearchBarValue(event.target.value);
+    console.log("searchbarvalue", searchBarValue);
+    console.log("EVENT", event);
   };
 
   const minPokemonId = () => {
@@ -95,6 +97,12 @@ const PokemonCard = (props) => {
     }
   };
 
+  const searchWithEnter = (event) => {
+    if (event.keyCode === 13) {
+      maxSearchId();
+    }
+  };
+
   return (
     <div>
       <div className="flexContainer">
@@ -117,7 +125,7 @@ const PokemonCard = (props) => {
         Next{" "}
       </button>
       <p className="searchBar">Search below by name or Pokédex number</p>
-      <input className="searchBarField" type="text" name="searchBar" value={searchBarValue} onChange={handleChange}></input>
+      <input className="searchBarField" type="text" name="searchBar" value={searchBarValue} onChange={handleChange} onKeyDown={searchWithEnter}></input>
       <button className="nextPreviousPokemon" onClick={() => maxSearchId()}>
         Search Pokémon
       </button>
