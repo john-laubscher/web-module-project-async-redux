@@ -1,5 +1,5 @@
 import axios from "axios";
-import { searchbarSweetAlert, maxPokemonVariable } from "../utils";
+import { searchbarSweetAlert, maxPokemonIdVariable } from "../utils";
 
 export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
@@ -11,14 +11,14 @@ export const MAX_POKEMON_ID = "MAX_POKEMON_ID";
 
 export const getPokemon = (pokemonId) => (dispatch) => {
   dispatch(fetchStart());
-  if (pokemonId > maxPokemonVariable) {
+  if (pokemonId > maxPokemonIdVariable) {
     searchbarSweetAlert();
   }
   axios
     .get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
     .then((resp) => {
       console.log("axios call", resp);
-      if (resp.data.id > maxPokemonVariable) {
+      if (resp.data.id > maxPokemonIdVariable) {
         searchbarSweetAlert();
       } else {
         dispatch(fetchSuccess(resp.data));

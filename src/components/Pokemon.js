@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import PokemonTypes from "../components/PokemonTypes";
 import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } from "../actions/index";
-import { searchbarSweetAlert, maxPokemonVariable } from "../utils";
+import { searchbarSweetAlert, maxPokemonIdVariable } from "../utils";
 
 const PokemonCard = (props) => {
   const { getPokemon, name, imageUrl, pokemonId, types, past_types } = props;
@@ -16,7 +16,7 @@ const PokemonCard = (props) => {
     setSearchBarValue(event.target.value);
   };
 
-  const minPokemonId = () => {
+  const checkMinPokemonId = () => {
     if (pokemonId <= 1) {
       props.minPokemonId();
     } else {
@@ -24,8 +24,8 @@ const PokemonCard = (props) => {
     }
   };
 
-  const maxPokemonId = () => {
-    if (pokemonId >= maxPokemonVariable) {
+  const checkMaxPokemonId = () => {
+    if (pokemonId >= maxPokemonIdVariable) {
       searchbarSweetAlert();
       props.maxPokemonId();
     } else {
@@ -111,11 +111,11 @@ const PokemonCard = (props) => {
           </p>
         </div>
       </div>
-      <button className="nextPreviousPokemon" onClick={minPokemonId}>
+      <button className="nextPreviousPokemon" onClick={checkMinPokemonId}>
         {" "}
         Previous{" "}
       </button>
-      <button className="nextPreviousPokemon" onClick={maxPokemonId}>
+      <button className="nextPreviousPokemon" onClick={checkMaxPokemonId}>
         {" "}
         Next{" "}
       </button>
