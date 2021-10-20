@@ -1,8 +1,5 @@
 import axios from "axios";
-import Swal from "sweetalert2";
-import ProfessorOak from "../components/Pictures/ProfessorOak.png";
-// import OriginalMap from "../components/Pictures/OriginalMap.png";
-import Colors from "../components/Pictures/Colors.jpg";
+import { searchbarSweetAlert, maxPokemonVariable } from "../utils";
 
 export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
@@ -12,24 +9,16 @@ export const PREVIOUS_POKEMON = "PREVIOUS_POKEMON";
 export const MIN_POKEMON_ID = "MIN_POKEMON_ID";
 export const MAX_POKEMON_ID = "MAX_POKEMON_ID";
 
-const searchbarSweetAlert = () => {
-  Swal.fire({
-    title: "Pokémon not found",
-    imageUrl: ProfessorOak,
-    imageHeight: 200,
-    imageAlt: "Professor Oak",
-    text: "Professor Oak: Hmmm, that Pokémon doesn't appear to be in my Pokédex. Please check your spelling or choose one of the original 151 Pokémon",
-    background: `no-repeat url(${Colors})`,
-  });
-};
-
 export const getPokemon = (pokemonId) => (dispatch) => {
   dispatch(fetchStart());
+  if (pokemonId > maxPokemonVariable) {
+    searchbarSweetAlert();
+  }
   axios
     .get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
     .then((resp) => {
       console.log("axios call", resp);
-      if (resp.data.id > 151) {
+      if (resp.data.id > maxPokemonVariable) {
         searchbarSweetAlert();
       } else {
         dispatch(fetchSuccess(resp.data));

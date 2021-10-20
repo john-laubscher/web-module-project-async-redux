@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import PokemonTypes from "../components/PokemonTypes";
 import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } from "../actions/index";
+import { searchbarSweetAlert, maxPokemonVariable } from "../utils";
 
 const PokemonCard = (props) => {
   const { getPokemon, name, imageUrl, pokemonId, types, past_types } = props;
@@ -13,8 +14,6 @@ const PokemonCard = (props) => {
 
   const handleChange = (event) => {
     setSearchBarValue(event.target.value);
-    console.log("searchbarvalue", searchBarValue);
-    console.log("EVENT", event);
   };
 
   const minPokemonId = () => {
@@ -26,21 +25,17 @@ const PokemonCard = (props) => {
   };
 
   const maxPokemonId = () => {
-    if (pokemonId >= 151) {
+    if (pokemonId >= maxPokemonVariable) {
+      searchbarSweetAlert();
       props.maxPokemonId();
     } else {
       props.nextPokemon();
     }
   };
 
-  const maxSearchId = () => {
-    if (searchBarValue > 151) {
-      setSearchBarValue(151);
-      props.getPokemon(151);
-    } else {
-      const searchValueLowerCase = searchBarValue.toLowerCase();
-      props.getPokemon(searchValueLowerCase);
-    }
+  const searchbarSubmit = () => {
+    const searchValueLowerCase = searchBarValue.toLowerCase();
+    props.getPokemon(searchValueLowerCase);
   };
 
   const stylingFunc = () => {
@@ -99,7 +94,7 @@ const PokemonCard = (props) => {
 
   const searchWithEnter = (event) => {
     if (event.keyCode === 13) {
-      maxSearchId();
+      searchbarSubmit();
     }
   };
 
@@ -126,7 +121,7 @@ const PokemonCard = (props) => {
       </button>
       <p className="searchBar">Search below by name or Pokédex number</p>
       <input className="searchBarField" type="text" name="searchBar" value={searchBarValue} onChange={handleChange} onKeyDown={searchWithEnter}></input>
-      <button className="nextPreviousPokemon" onClick={() => maxSearchId()}>
+      <button className="nextPreviousPokemon" onClick={() => searchbarSubmit()}>
         Search Pokémon
       </button>
     </div>
