@@ -7,16 +7,16 @@ import SkyColors from "./components/Pictures/SkyColors.jpg";
 import useSound from "use-sound";
 import PokemonSong from "./components/PokemonSong.mp3";
 
-export const GEN_i_STARTING_ID = 1;
-export const GEN_ii_STARTING_ID = 152;
-export const GEN_iii_STARTING_ID = 252;
-export const GEN_iv_STARTING_ID = 387;
-export const GEN_v_STARTING_ID = 494;
-export const GEN_vi_STARTING_ID = 650;
-export const GEN_vii_STARTING_ID = 722;
-export const GEN_viii_STARTING_ID = 810;
+export const GEN_i_ENDING_ID = 151;
+export const GEN_ii_ENDING_ID = 251;
+export const GEN_iii_ENDING_ID = 386;
+export const GEN_iv_ENDING_ID = 493;
+export const GEN_v_ENDING_ID = 649;
+export const GEN_vi_ENDING_ID = 721;
+export const GEN_vii_ENDING_ID = 809;
+export const GEN_viii_ENDING_ID = 898;
 
-export let maxPokemonIdVariable = GEN_ii_STARTING_ID;
+export let maxPokemonIdVariable = GEN_i_ENDING_ID;
 
 export const searchbarSweetAlert = () => {
   Swal.fire({

@@ -1,4 +1,5 @@
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, NEXT_POKEMON, PREVIOUS_POKEMON, MIN_POKEMON_ID, MAX_POKEMON_ID } from "../actions";
+import { maxPokemonIdVariable } from "../utils";
 
 const initialState = {
   name: "Bulbasaur",
@@ -46,7 +47,7 @@ export const reducer = (state = initialState, action) => {
     case MIN_POKEMON_ID:
       return {
         ...state,
-        pokemonId: 151,
+        pokemonId: maxPokemonIdVariable,
       };
     case MAX_POKEMON_ID:
       return {
