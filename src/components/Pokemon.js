@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import PokemonTypes from "../components/PokemonTypes";
 import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } from "../actions/index";
-import { searchbarSweetAlert, maxPokemonIdVariable } from "../utils";
+import { searchbarSweetAlert, maxPokemonIdVariable, PlaySound } from "../utils";
 
 const PokemonCard = (props) => {
   const { getPokemon, name, imageUrl, pokemonId, types, past_types } = props;
@@ -100,6 +100,7 @@ const PokemonCard = (props) => {
 
   return (
     <div>
+      {PlaySound()}
       <div className="flexContainer">
         <div className="pokeCard" style={stylingFunc()}>
           <h2> {name} </h2>

@@ -30,6 +30,9 @@ const PokemonTypes = {
   psychic: { img: PsychicLogo, color: "#C79FF9" },
   rock: { img: RockLogo, color: "#DEB887" },
   water: { img: WaterLogo, color: "#00BFFF" },
+  dark: { img: "placeholder", color: "placeholder" },
+  fairy: { img: "placeholder", color: "placeholder" },
+  steel: { img: "placeholder", color: "placeholder" },
 };
 
 export default PokemonTypes;

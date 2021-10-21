@@ -125,15 +125,21 @@ h2 {
   opacity: 0.8;
 }
 
-/* Sweet Alert */
+/* Search bar Sweet Alert */
 .swal2-title {
   color: black !important;
 }
-
+/* All Sweet Alerts */
 .swal2-html-container {
   color: black !important;
   font-weight: bold !important;
 }
+
+/*Sweet Alert Titles */
+.swal2-title {
+  font-size: 2.2em !important;
+}
+
 @media (max-width: 1200px) {
   .pokeCard {
     width: 35%;
