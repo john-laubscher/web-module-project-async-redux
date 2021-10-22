@@ -43,7 +43,7 @@ export const welcomeSweetAlert = () => {
 };
 
 export const PlaySound = () => {
-  const [play, { stop }] = useSound(PokemonSong, { volume: 0.01 });
+  const [play, { stop }] = useSound(PokemonSong, { volume: 0.03 });
   const [isPlaying, setIsPlaying] = React.useState(false);
   const clickButton = () => {
     if (!isPlaying) {
