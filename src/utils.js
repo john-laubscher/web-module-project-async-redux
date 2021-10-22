@@ -16,7 +16,7 @@ export const GEN_vi_ENDING_ID = 721;
 export const GEN_vii_ENDING_ID = 809;
 export const GEN_viii_ENDING_ID = 898;
 
-export let maxPokemonIdVariable = GEN_i_ENDING_ID;
+export let maxPokemonIdVariable = GEN_viii_ENDING_ID;
 
 export const searchbarSweetAlert = () => {
   Swal.fire({
