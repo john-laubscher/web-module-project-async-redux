@@ -49,6 +49,6 @@ export const maxPokemonId = () => {
 export const previousPokemon = () => {
   return { type: PREVIOUS_POKEMON };
 };
-export const minPokemonId = () => {
-  return { type: MIN_POKEMON_ID };
+export const minPokemonId = (maxPokemonIdVariable) => {
+  return { type: MIN_POKEMON_ID, payload: maxPokemonIdVariable };
 };

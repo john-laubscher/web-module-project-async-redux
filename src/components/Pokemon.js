@@ -2,15 +2,16 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import PokemonTypes from "../components/PokemonTypes";
 import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } from "../actions/index";
-import { searchbarSweetAlert, maxPokemonIdVariable, PlaySound } from "../utils";
+import { searchbarSweetAlert, generationInfo, PlaySound } from "../utils";
 
-const PokemonCard = (props) => {
-  const { getPokemon, name, imageUrl, pokemonId, types, past_types } = props;
+export const PokemonCard = (props) => {
+  const { getPokemon, name, imageUrl, pokemonId, types, past_types, currentGeneration } = props;
   useEffect(() => {
     getPokemon(pokemonId);
   }, [pokemonId, getPokemon]);
 
   const [searchBarValue, setSearchBarValue] = useState("");
+  const maxPokemonIdVariable = generationInfo[currentGeneration].endingId;
 
   const handleChange = (event) => {
     setSearchBarValue(event.target.value);
@@ -18,12 +19,13 @@ const PokemonCard = (props) => {
 
   const displayPreviousPokemon = () => {
     if (pokemonId <= 1) {
-      props.minPokemonId();
+      props.minPokemonId(maxPokemonIdVariable);
     } else {
       props.previousPokemon();
     }
   };
 
+  //if (pokemonId >= generationInfo[currentGeneration].endingId)
   const displayNextPokemon = () => {
     if (pokemonId >= maxPokemonIdVariable) {
       searchbarSweetAlert();
@@ -120,6 +122,7 @@ const PokemonCard = (props) => {
     </div>
   );
 };
+
 const mapStateToProps = (state) => {
   return {
     name: state.name,
@@ -127,6 +130,7 @@ const mapStateToProps = (state) => {
     pokemonId: state.pokemonId,
     types: state.types,
     past_types: state.past_types,
+    currentGeneration: state.currentGeneration,
   };
 };
 

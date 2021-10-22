@@ -1,5 +1,6 @@
 // bring in all the other helper functions like sweet alert and on pokemon.js
 import React from "react";
+
 import Swal from "sweetalert2";
 import ProfessorOak from "./components/Pictures/ProfessorOak.png";
 import Colors from "./components/Pictures/Colors.jpg";
@@ -7,16 +8,18 @@ import SkyColors from "./components/Pictures/SkyColors.jpg";
 import useSound from "use-sound";
 import PokemonSong from "./components/PokemonSong.mp3";
 
-export const GEN_i_ENDING_ID = 151;
-export const GEN_ii_ENDING_ID = 251;
-export const GEN_iii_ENDING_ID = 386;
-export const GEN_iv_ENDING_ID = 493;
-export const GEN_v_ENDING_ID = 649;
-export const GEN_vi_ENDING_ID = 721;
-export const GEN_vii_ENDING_ID = 809;
-export const GEN_viii_ENDING_ID = 898;
+export const generationInfo = {
+  generation_i: { endingId: 151, value: 1 },
+  generation_ii: { endingId: 251, value: 2 },
+  generation_iii: { endingId: 386, value: 3 },
+  generation_iv: { endingId: 493, value: 4 },
+  generation_v: { endingId: 649, value: 5 },
+  generation_vi: { endingId: 721, value: 6 },
+  generation_vii: { endingId: 809, value: 7 },
+  generation_viii: { endingId: 898, value: 8 },
+};
 
-export let maxPokemonIdVariable = GEN_viii_ENDING_ID;
+export const maxPokemonIdVariable = generationInfo.generation_i.endingId;
 
 export const searchbarSweetAlert = () => {
   Swal.fire({

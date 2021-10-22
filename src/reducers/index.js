@@ -1,5 +1,4 @@
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, NEXT_POKEMON, PREVIOUS_POKEMON, MIN_POKEMON_ID, MAX_POKEMON_ID } from "../actions";
-import { maxPokemonIdVariable } from "../utils";
 
 const initialState = {
   name: "Bulbasaur",
@@ -9,6 +8,7 @@ const initialState = {
   types: [{ type: { name: "grass" } }, { type: { name: "poison" } }],
   error: "",
   past_types: [],
+  currentGeneration: "generation_i",
 };
 
 export const reducer = (state = initialState, action) => {
@@ -47,7 +47,7 @@ export const reducer = (state = initialState, action) => {
     case MIN_POKEMON_ID:
       return {
         ...state,
-        pokemonId: maxPokemonIdVariable,
+        pokemonId: action.payload,
       };
     case MAX_POKEMON_ID:
       return {
