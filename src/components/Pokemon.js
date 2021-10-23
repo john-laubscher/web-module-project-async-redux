@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import PokemonTypes from "../components/PokemonTypes";
-import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } from "../actions/index";
+import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId, setCurrentGeneration } from "../actions/index";
 import { searchbarSweetAlert, generationInfo, PlaySound } from "../utils";
 
 export const PokemonCard = (props) => {
@@ -25,7 +25,6 @@ export const PokemonCard = (props) => {
     }
   };
 
-  //if (pokemonId >= generationInfo[currentGeneration].endingId)
   const displayNextPokemon = () => {
     if (pokemonId >= maxPokemonIdVariable) {
       searchbarSweetAlert();

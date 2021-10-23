@@ -8,6 +8,7 @@ export const NEXT_POKEMON = "NEXT_POKEMON";
 export const PREVIOUS_POKEMON = "PREVIOUS_POKEMON";
 export const MIN_POKEMON_ID = "MIN_POKEMON_ID";
 export const MAX_POKEMON_ID = "MAX_POKEMON_ID";
+export const SET_CURRENT_GENERATION = "SET_CURRENT_GENERATION";
 
 export const getPokemon = (pokemonId) => (dispatch) => {
   dispatch(fetchStart());
@@ -51,4 +52,8 @@ export const previousPokemon = () => {
 };
 export const minPokemonId = (maxPokemonIdVariable) => {
   return { type: MIN_POKEMON_ID, payload: maxPokemonIdVariable };
+};
+
+export const setCurrentGeneration = (currentGeneration) => {
+  return { type: SET_CURRENT_GENERATION, payload: currentGeneration };
 };

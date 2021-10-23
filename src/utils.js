@@ -3,8 +3,8 @@ import React from "react";
 
 import Swal from "sweetalert2";
 import ProfessorOak from "./components/Pictures/ProfessorOak.png";
-import Colors from "./components/Pictures/Colors.jpg";
-import SkyColors from "./components/Pictures/SkyColors.jpg";
+import Colors from "./components/Pictures/BackgroundColors/Colors.jpg";
+import SkyColors from "./components/Pictures/BackgroundColors/SkyColors.jpg";
 import useSound from "use-sound";
 import PokemonSong from "./components/PokemonSong.mp3";
 
