@@ -9,7 +9,6 @@ function App() {
     <div className="App">
       <img className="PokedexLogo" src={PokedexLogo} alt="Pokedex Logo" />
       {welcomeSweetAlert()}
-      <div class="dropDown"></div>
       <PokemonCard />
     </div>
   );

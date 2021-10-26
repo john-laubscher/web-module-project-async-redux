@@ -28,15 +28,8 @@ body {
 
 /* Generation Dropdown */
 
-.css-83ijpv-MuiTypography-root {
-  color: black !important;
+.MuiListItemText-secondary {
   font-weight: 800 !important;
-}
-/* Choose Generation background */
-.css-822hb5-MuiList-root {
-  background-color: rgba(0, 0, 0, 0.001) !important ;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
 }
 
 .playSoundButton {

@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -6,12 +7,23 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { setCurrentGeneration } from "../actions/index";
 
-const options = ["Pokédex will max out at chosen generation", "generation_i", "generation_ii", "generation_iii", "generation_iv", "generation_v", "generation_vi", "generation_vii", "generation_viii"];
-
-export default function GenerationDropdown() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+export const GenerationDropdown = (props) => {
+  const { setCurrentGeneration } = props;
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(1);
   const open = Boolean(anchorEl);
+
+  const options = [
+    "Pokédex will max out at chosen generation",
+    "generation_i",
+    "generation_ii",
+    "generation_iii",
+    "generation_iv",
+    "generation_v",
+    "generation_vi",
+    "generation_vii",
+    "generation_viii",
+  ];
 
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
@@ -20,7 +32,7 @@ export default function GenerationDropdown() {
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
     setAnchorEl(null);
-    setCurrentGeneration(index);
+    setCurrentGeneration(options[index]);
   };
 
   const handleClose = () => {
@@ -29,7 +41,7 @@ export default function GenerationDropdown() {
 
   return (
     <div>
-      <List component="nav" aria-label="Device settings" sx={{ bgcolor: "background.paper" }}>
+      <List component="nav" aria-label="Device settings">
         <ListItem
           button
           id="lock-button"
@@ -62,4 +74,10 @@ export default function GenerationDropdown() {
       </Menu>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  return {};
+};
+
+export default connect(mapStateToProps, { setCurrentGeneration })(GenerationDropdown);

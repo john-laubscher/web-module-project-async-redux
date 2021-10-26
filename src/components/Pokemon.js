@@ -104,7 +104,7 @@ export const PokemonCard = (props) => {
     <div>
       <div className="topButtonContainer">
         {PlaySound()}
-        {GenerationDropdown()}
+        <GenerationDropdown />
       </div>
       <div className="flexContainer">
         <div className="pokeCard" style={pokeCardStylingFunc()}>

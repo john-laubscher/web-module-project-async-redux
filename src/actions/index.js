@@ -53,7 +53,6 @@ export const previousPokemon = () => {
 export const minPokemonId = (maxPokemonIdVariable) => {
   return { type: MIN_POKEMON_ID, payload: maxPokemonIdVariable };
 };
-
 export const setCurrentGeneration = (currentGeneration) => {
   return { type: SET_CURRENT_GENERATION, payload: currentGeneration };
 };
