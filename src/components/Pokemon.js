@@ -102,7 +102,7 @@ export const PokemonCard = (props) => {
 
   return (
     <div>
-      <div class="topButtonContainer">
+      <div className="topButtonContainer">
         {PlaySound()}
         {GenerationDropdown()}
       </div>
