@@ -6,8 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { createStore, applyMiddleware } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
-import "antd/dist/antd.css";
-
 import { reducer } from "./reducers";
 import { Provider } from "react-redux";
 

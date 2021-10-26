@@ -1,45 +1,65 @@
-import { Menu, Dropdown } from "antd";
+import * as React from "react";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
 import { setCurrentGeneration } from "../actions/index";
 
-export const dropDown = () => {
-  const onClick = ({ key }) => {
-    console.log("call action for setting currentGen");
-    setCurrentGeneration(key);
+const options = ["Pokédex will max out at chosen generation", "generation_i", "generation_ii", "generation_iii", "generation_iv", "generation_v", "generation_vi", "generation_vii", "generation_viii"];
+
+export default function GenerationDropdown() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const open = Boolean(anchorEl);
+
+  const handleClickListItem = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  const menu = (
-    <Menu onClick={onClick}>
-      <Menu.Item key="generation_i">Generation_i</Menu.Item>
-      <Menu.Item key="generation_ii">Generation_ii</Menu.Item>
-      <Menu.Item key="generation_iii">Generation_iii</Menu.Item>
-      <Menu.Item key="generation_iv">Generation_iv</Menu.Item>
-      <Menu.Item key="generation_v">Generation_v</Menu.Item>
-      <Menu.Item key="generation_vi">Generation_vi</Menu.Item>
-      <Menu.Item key="generation_vii">Generation_vii</Menu.Item>
-      <Menu.Item key="generation_viii">Generation_viii</Menu.Item>
-    </Menu>
-  );
+  const handleMenuItemClick = (event, index) => {
+    setSelectedIndex(index);
+    setAnchorEl(null);
+    setCurrentGeneration(index);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <div>
-      <Dropdown overlay={menu} trigger={["click"]}>
-        <div className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
-          Choose the highest generation you wish your Pokédex to show
-        </div>
-      </Dropdown>
+      <List component="nav" aria-label="Device settings" sx={{ bgcolor: "background.paper" }}>
+        <ListItem
+          button
+          id="lock-button"
+          aria-haspopup="listbox"
+          aria-controls="lock-menu"
+          aria-label="Choose Pokédex Generation"
+          aria-expanded={open ? "true" : undefined}
+          onClick={handleClickListItem}
+        >
+          <button>
+            <ListItemText primary="Choose Pokédex Generation:" secondary={options[selectedIndex]} />
+          </button>
+        </ListItem>
+      </List>
+      <Menu
+        id="lock-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "lock-button",
+          role: "listbox",
+        }}
+      >
+        {options.map((option, index) => (
+          <MenuItem key={option} disabled={index === 0} selected={index === selectedIndex} onClick={(event) => handleMenuItemClick(event, index)}>
+            {option}
+          </MenuItem>
+        ))}
+      </Menu>
     </div>
   );
-};
-
-export default dropDown;
-
-// ReactDOM.render(
-//   <Dropdown overlay={menu} trigger={["click"]}>
-//     <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
-//       Choose the highest generation you wish your Pokédex to show
-//     </a>
-//   </Dropdown>,
-//   mountNode
-// );
-//   }
-// export default dropDown;
+}

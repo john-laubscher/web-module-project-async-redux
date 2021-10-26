@@ -20,6 +20,29 @@ body {
   }
 }
 
+.topButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Generation Dropdown */
+
+.css-83ijpv-MuiTypography-root {
+  color: black !important;
+  font-weight: 800 !important;
+}
+/* Choose Generation background */
+.css-822hb5-MuiList-root {
+  background-color: rgba(0, 0, 0, 0.001) !important ;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.playSoundButton {
+  height: 55.29px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -102,23 +125,23 @@ h2 {
 }
 
 button {
-  display: inline-block !important;
-  padding: 0.3em 1.2em !important;
-  margin: 0 0.1em 0.1em 0 !important;
-  border: 1em solid rgba(255, 255, 255, 0) !important;
-  border-radius: 2em !important;
-  box-sizing: border-box !important;
-  text-decoration: none !important;
-  font-family: "Roboto", sans-serif !important;
-  font-weight: 300 !important;
-  color: #ffffff !important;
-  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35) !important;
-  text-align: center !important;
-  transition: all 0.2s !important;
-  background-color: #9e0e04 !important;
-  border-color: black !important;
-  border-width: 0.25em !important;
-  opacity: 0.8 !important;
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  border: 1em solid rgba(255, 255, 255, 0);
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  text-align: center;
+  transition: all 0.2s;
+  background-color: #9e0e04;
+  border-color: black;
+  border-width: 0.25em;
+  opacity: 0.8;
 }
 
 .searchBarField {

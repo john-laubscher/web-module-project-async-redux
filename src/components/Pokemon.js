@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PokemonTypes from "../components/PokemonTypes";
 import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } from "../actions/index";
 import { searchbarSweetAlert, generationInfo, PlaySound } from "../utils";
-import DropDown from "../components/DropdownMenu";
+import GenerationDropdown from "./DropdownMenu";
 
 export const PokemonCard = (props) => {
   const { getPokemon, name, imageUrl, pokemonId, types, past_types, currentGeneration } = props;
@@ -102,7 +102,10 @@ export const PokemonCard = (props) => {
 
   return (
     <div>
-      {PlaySound()}
+      <div class="topButtonContainer">
+        {PlaySound()}
+        {GenerationDropdown()}
+      </div>
       <div className="flexContainer">
         <div className="pokeCard" style={pokeCardStylingFunc()}>
           <h2> {name} </h2>

@@ -57,5 +57,9 @@ export const PlaySound = () => {
       setIsPlaying(false);
     }
   };
-  return <button onClick={clickButton}>Play Sound!</button>;
+  return (
+    <button className="playSoundButton" onClick={clickButton}>
+      Play Sound!
+    </button>
+  );
 };
