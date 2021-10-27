@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import PokemonTypes from "../components/PokemonTypes";
 import { getPokemon, nextPokemon, previousPokemon, minPokemonId, maxPokemonId } from "../actions/index";
-import { searchbarSweetAlert, generationInfo, PlaySound } from "../utils";
+import { pokemonNotFoundSweetAlert, generationInfo, PlaySound } from "../utils";
 import GenerationDropdown from "./DropdownMenu";
 
 export const PokemonCard = (props) => {
   const { getPokemon, name, imageUrl, pokemonId, types, past_types, currentGeneration } = props;
+  let maxPokemonIdVariable = generationInfo[currentGeneration].endingId;
   useEffect(() => {
-    getPokemon(pokemonId);
-  }, [pokemonId, getPokemon]);
+    getPokemon(pokemonId, maxPokemonIdVariable);
+  }, [pokemonId, getPokemon, maxPokemonIdVariable]);
 
   const [searchBarValue, setSearchBarValue] = useState("");
-  const maxPokemonIdVariable = generationInfo[currentGeneration].endingId;
 
   const handleChange = (event) => {
     setSearchBarValue(event.target.value);
@@ -20,15 +20,18 @@ export const PokemonCard = (props) => {
 
   const displayPreviousPokemon = () => {
     if (pokemonId <= 1) {
+      console.log("MAXPOKEMON:", maxPokemonIdVariable);
       props.minPokemonId(maxPokemonIdVariable);
     } else {
+      console.log("MAXPOKEMON:", maxPokemonIdVariable);
       props.previousPokemon();
     }
   };
 
   const displayNextPokemon = () => {
+    console.log("MAXPOKEMON:", maxPokemonIdVariable);
     if (pokemonId >= maxPokemonIdVariable) {
-      searchbarSweetAlert();
+      pokemonNotFoundSweetAlert();
       props.maxPokemonId();
     } else {
       props.nextPokemon();

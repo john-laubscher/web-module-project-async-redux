@@ -19,9 +19,7 @@ export const generationInfo = {
   generation_viii: { endingId: 898, value: 8 },
 };
 
-export const maxPokemonIdVariable = generationInfo.generation_i.endingId;
-
-export const searchbarSweetAlert = () => {
+export const pokemonNotFoundSweetAlert = () => {
   Swal.fire({
     title: "Pokémon not found",
     imageUrl: ProfessorOak,

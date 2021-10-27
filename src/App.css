@@ -26,7 +26,7 @@ body {
   align-items: center;
 }
 
-/* Generation Dropdown */
+/* Generation Dropdown (MatUI) */
 
 .MuiListItemText-secondary {
   font-weight: 800 !important;
