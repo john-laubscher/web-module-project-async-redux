@@ -35,7 +35,6 @@ export const GenerationDropdown = (props) => {
     setAnchorEl(null);
     setCurrentGeneration(options[index]);
     //  generationInfo[currentGeneration].endingId;
-    getPokemon(generationInfo[currentGeneration].startingId);
   };
 
   const handleClose = () => {

@@ -1,4 +1,5 @@
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, NEXT_POKEMON, PREVIOUS_POKEMON, MIN_POKEMON_ID, MAX_POKEMON_ID, SET_CURRENT_GENERATION } from "../actions";
+import { generationInfo } from "../utils";
 
 const initialState = {
   name: "Bulbasaur",
@@ -58,6 +59,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         currentGeneration: action.payload,
+        pokemonId: generationInfo[action.payload].startingId,
       };
     default:
       return state;
