@@ -18,7 +18,6 @@ export const getPokemon = (pokemonId, maxPokemonIdVariable) => (dispatch) => {
   axios
     .get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
     .then((resp) => {
-      console.log("axios call", resp);
       if (resp.data.id > maxPokemonIdVariable) {
         pokemonNotFoundSweetAlert();
       } else {

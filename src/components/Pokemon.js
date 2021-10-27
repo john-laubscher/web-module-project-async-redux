@@ -69,7 +69,6 @@ export const PokemonCard = (props) => {
   const determineTypesIcons = () => {
     if (past_types.length > 0) {
       let typesIconInfo = PokemonTypes[past_types[0].types[0].type.name];
-      console.log("typesIconInfo", typesIconInfo);
       return (
         <div>
           <img src={typesIconInfo.img} alt={`the ${typesIconInfo.name} Pokémon type icon`} width={"35%"} height={"auto%"} />

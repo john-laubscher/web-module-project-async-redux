@@ -1,6 +1,4 @@
-// bring in all the other helper functions like sweet alert and on pokemon.js
 import React from "react";
-
 import Swal from "sweetalert2";
 import ProfessorOak from "./components/Pictures/ProfessorOak.png";
 import Colors from "./components/Pictures/BackgroundColors/Colors.jpg";
