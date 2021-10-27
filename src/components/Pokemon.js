@@ -37,7 +37,7 @@ export const PokemonCard = (props) => {
 
   const searchbarSubmit = () => {
     const searchValueLowerCase = searchBarValue.toLowerCase();
-    props.getPokemon(searchValueLowerCase);
+    props.getPokemon(searchValueLowerCase, maxPokemonIdVariable);
   };
 
   const pokeCardStylingFunc = () => {
