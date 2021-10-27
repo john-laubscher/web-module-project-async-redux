@@ -9,14 +9,14 @@ import useSound from "use-sound";
 import PokemonSong from "./components/PokemonSong.mp3";
 
 export const generationInfo = {
-  generation_i: { endingId: 151, value: 1 },
-  generation_ii: { endingId: 251, value: 2 },
-  generation_iii: { endingId: 386, value: 3 },
-  generation_iv: { endingId: 493, value: 4 },
-  generation_v: { endingId: 649, value: 5 },
-  generation_vi: { endingId: 721, value: 6 },
-  generation_vii: { endingId: 809, value: 7 },
-  generation_viii: { endingId: 898, value: 8 },
+  generation_i: { startingId: 1, endingId: 151, value: 1 },
+  generation_ii: { startingId: 152, endingId: 251, value: 2 },
+  generation_iii: { startingId: 252, endingId: 386, value: 3 },
+  generation_iv: { startingId: 387, endingId: 493, value: 4 },
+  generation_v: { startingId: 494, endingId: 649, value: 5 },
+  generation_vi: { startingId: 650, endingId: 721, value: 6 },
+  generation_vii: { startingId: 722, endingId: 809, value: 7 },
+  generation_viii: { startingId: 810, endingId: 898, value: 8 },
 };
 
 export const pokemonNotFoundSweetAlert = () => {
