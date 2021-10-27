@@ -137,6 +137,10 @@ button {
   opacity: 0.8;
 }
 
+.bottomButtons {
+  margin-top: 0.8em;
+}
+
 .searchBarField {
   opacity: 0.8;
 }

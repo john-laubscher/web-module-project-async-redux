@@ -116,8 +116,14 @@ export const PokemonCard = (props) => {
           </p>
         </div>
       </div>
-      <button onClick={displayPreviousPokemon}> Previous </button>
-      <button onClick={displayNextPokemon}> Next </button>
+      <button className="bottomButtons" onClick={displayPreviousPokemon}>
+        {" "}
+        Previous{" "}
+      </button>
+      <button className="bottomButtons" onClick={displayNextPokemon}>
+        {" "}
+        Next{" "}
+      </button>
       <p className="searchBar">Search below by name or Pokédex number</p>
       <input className="searchBarField" type="text" name="searchBar" value={searchBarValue} onChange={handleChange} onKeyDown={searchWithEnter}></input>
       <button onClick={() => searchbarSubmit()}>Search Pokémon</button>
