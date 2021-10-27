@@ -20,16 +20,13 @@ export const PokemonCard = (props) => {
 
   const displayPreviousPokemon = () => {
     if (pokemonId <= 1) {
-      console.log("MAXPOKEMON:", maxPokemonIdVariable);
       props.minPokemonId(maxPokemonIdVariable);
     } else {
-      console.log("MAXPOKEMON:", maxPokemonIdVariable);
       props.previousPokemon();
     }
   };
 
   const displayNextPokemon = () => {
-    console.log("MAXPOKEMON:", maxPokemonIdVariable);
     if (pokemonId >= maxPokemonIdVariable) {
       pokemonNotFoundSweetAlert();
       props.maxPokemonId();

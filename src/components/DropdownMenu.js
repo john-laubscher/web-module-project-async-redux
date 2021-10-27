@@ -5,11 +5,10 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import { setCurrentGeneration, getPokemon } from "../actions/index";
-import { generationInfo } from "../utils";
+import { setCurrentGeneration } from "../actions/index";
 
 export const GenerationDropdown = (props) => {
-  const { setCurrentGeneration, getPokemon, currentGeneration } = props;
+  const { setCurrentGeneration } = props;
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(1);
   const open = Boolean(anchorEl);
@@ -34,7 +33,6 @@ export const GenerationDropdown = (props) => {
     setSelectedIndex(index);
     setAnchorEl(null);
     setCurrentGeneration(options[index]);
-    //  generationInfo[currentGeneration].endingId;
   };
 
   const handleClose = () => {
@@ -79,7 +77,7 @@ export const GenerationDropdown = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { currentGeneration: state.currentGeneration };
+  return {};
 };
 
-export default connect(mapStateToProps, { setCurrentGeneration, getPokemon })(GenerationDropdown);
+export default connect(mapStateToProps, { setCurrentGeneration })(GenerationDropdown);
