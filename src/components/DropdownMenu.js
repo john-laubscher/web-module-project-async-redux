@@ -23,13 +23,6 @@ export const GenerationDropdown = (props) => {
     { generation: "generation_vi", displayText: "Generation VI (Kalos)" },
     { generation: "generation_vii", displayText: "Generation VII (Alola)" },
     { generation: "generation_viii", displayText: "Generation VIII (Galar)" },
-    // "generation_ii",
-    // "generation_iii",
-    // "generation_iv",
-    // "generation_v",
-    // "generation_vi",
-    // "generation_vii",
-    // "generation_viii",
   ];
 
   const handleClickListItem = (event) => {
