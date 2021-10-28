@@ -15,14 +15,21 @@ export const GenerationDropdown = (props) => {
 
   const options = [
     "Pokédex will max out at chosen generation",
-    "generation_i",
-    "generation_ii",
-    "generation_iii",
-    "generation_iv",
-    "generation_v",
-    "generation_vi",
-    "generation_vii",
-    "generation_viii",
+    { generation: "generation_i", displayText: "Generation I (Kanto)" },
+    { generation: "generation_ii", displayText: "Generation II (Johto)" },
+    { generation: "generation_iii", displayText: "Generation III (Hoenn)" },
+    { generation: "generation_vi", displayText: "Generation IV (Sinnoh)" },
+    { generation: "generation_v", displayText: "Generation V (Unova)" },
+    { generation: "generation_vi", displayText: "Generation VI (Kalos)" },
+    { generation: "generation_vii", displayText: "Generation VII (Alola)" },
+    { generation: "generation_viii", displayText: "Generation VIII (Galar)" },
+    // "generation_ii",
+    // "generation_iii",
+    // "generation_iv",
+    // "generation_v",
+    // "generation_vi",
+    // "generation_vii",
+    // "generation_viii",
   ];
 
   const handleClickListItem = (event) => {
@@ -32,7 +39,7 @@ export const GenerationDropdown = (props) => {
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
     setAnchorEl(null);
-    setCurrentGeneration(options[index]);
+    setCurrentGeneration(options[index].generation);
   };
 
   const handleClose = () => {
@@ -52,7 +59,7 @@ export const GenerationDropdown = (props) => {
           onClick={handleClickListItem}
         >
           <button>
-            <ListItemText primary="Choose Pokédex Generation:" secondary={options[selectedIndex]} />
+            <ListItemText primary="Choose Pokédex Generation:" secondary={options[selectedIndex].displayText} />
           </button>
         </ListItem>
       </List>
@@ -67,8 +74,8 @@ export const GenerationDropdown = (props) => {
         }}
       >
         {options.map((option, index) => (
-          <MenuItem key={option} disabled={index === 0} selected={index === selectedIndex} onClick={(event) => handleMenuItemClick(event, index)}>
-            {option}
+          <MenuItem key={option.generation} disabled={index === 0} selected={index === selectedIndex} onClick={(event) => handleMenuItemClick(event, index)}>
+            {option.displayText}
           </MenuItem>
         ))}
       </Menu>
