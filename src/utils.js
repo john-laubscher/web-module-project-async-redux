@@ -53,9 +53,18 @@ export const PlaySound = () => {
       setIsPlaying(false);
     }
   };
+
+  const determinePlaySoundText = () => {
+    if (!isPlaying) {
+      return "Play Music!";
+    } else {
+      return "Stop Music";
+    }
+  };
+
   return (
     <button className="playSoundButton" onClick={clickButton}>
-      Play Sound!
+      {determinePlaySoundText()}
     </button>
   );
 };
