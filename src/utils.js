@@ -23,7 +23,7 @@ export const pokemonNotFoundSweetAlert = () => {
     imageUrl: ProfessorOak,
     imageHeight: 200,
     imageAlt: "Professor Oak",
-    text: "Professor Oak: Hmmm, that Pokémon doesn't appear to be in my Pokédex. Please check your spelling or choose one of the original 151 Pokémon",
+    text: "Professor Oak: Hmmm, that Pokémon doesn't appear to be in my Pokédex. Please check your spelling or choose one up to your selected generation",
     background: `no-repeat url(${Colors})`,
   });
 };
@@ -35,7 +35,7 @@ export const welcomeSweetAlert = () => {
     imageUrl: ProfessorOak,
     imageHeight: 250,
     imageAlt: "Professor Oak",
-    text: " Please enjoy my completed Pokédex by searching for your favorite Pokémon.",
+    text: "Please enjoy my completed Pokédex by searching for your favorite Pokémon.",
     background: `no-repeat url(${SkyColors})`,
     backdrop: "rgba(250, 223, 218, 0.8)",
   });
