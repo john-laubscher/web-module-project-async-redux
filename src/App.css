@@ -1,0 +1,190 @@
+.App {
+  text-align: center;
+}
+body {
+  background: url(./components/Pictures/Pokeballs.jpeg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.topButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Generation Dropdown (MatUI) */
+
+.MuiListItemText-secondary {
+  font-weight: 800 !important;
+}
+
+.playSoundButton {
+  height: 55.29px;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.PokedexLogo {
+  width: 25%;
+  min-width: 170px;
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.pokeCard {
+  border: 3px inset rgb(17, 141, 104);
+  width: 25%;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.pokemonTypeFlexContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0px 25px;
+}
+
+.pokemonTypeName {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: capitalize;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 60%;
+  padding: 10px 0px;
+  margin: 0px 15px;
+}
+
+.pokedexNumber {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgb(253, 186, 186);
+}
+
+.pokedexNumber::first-letter {
+  text-transform: capitalize;
+}
+
+.searchBar {
+  margin: 10px 41%;
+  padding: 10px 0px;
+  background-color: #ffffff;
+  border: 0.5px solid black;
+  opacity: 0.8;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+button {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  border: 1em solid rgba(255, 255, 255, 0);
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  text-align: center;
+  transition: all 0.2s;
+  background-color: #9e0e04;
+  border-color: black;
+  border-width: 0.25em;
+  opacity: 0.8;
+}
+
+.bottomButtons {
+  margin-top: 0.8em;
+}
+
+.searchBarField {
+  opacity: 0.8;
+}
+
+/* Search bar Sweet Alert */
+.swal2-title {
+  color: black !important;
+}
+/* All Sweet Alerts */
+.swal2-html-container {
+  color: black !important;
+  font-weight: bold !important;
+}
+
+/*Sweet Alert Titles */
+.swal2-title {
+  font-size: 2.2em !important;
+}
+
+@media (max-width: 1200px) {
+  .pokeCard {
+    width: 35%;
+  }
+  .searchBar {
+    margin: 10px 35%;
+  }
+}
+
+@media (max-width: 800px) {
+  .pokeCard {
+    width: 40%;
+    min-width: 270px;
+  }
+
+  .searchBar {
+    margin: 10px 30%;
+  }
+}
+
+@media (max-width: 500px) {
+  .pokeCard {
+    width: 60%;
+  }
+  .searchBar {
+    margin: 10px 20%;
+  }
+}
